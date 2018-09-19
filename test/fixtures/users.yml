@@ -4,3 +4,17 @@ test:
   last_name: Tester
   email: test@test.com
   password_digest: <%= User.digest('password') %>
+
+hanna:
+  first_name: Hanna
+  last_name: Baushevich
+  email: hanna@example.gov
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  first_name:  <%= "User #{n}" %>
+  last_name:   <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
