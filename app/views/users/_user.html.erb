@@ -1,18 +1,25 @@
-<ul class="list-inline">
-  <li>
+<tr>
+  <th>
     <%= gravatar_for user, size: 50 %>
+  </th>
+  <th>
     <%= link_to user.first_name, user %>
+  </th>
+  <th>
     <%= link_to user.last_name, user %>
-  </li>
+  </th>
+  <th>
+    <%= link_to user.email, user %>
+  </th>
 
   <% if current_user.admin? && !current_user?(user) %>
-    <li >
+    <th >
       <%= link_to "update", edit_user_path(user) %>
-    </li>
+    </th>
 
-    <li>
+    <th>
       <%= link_to "delete", user, method: :delete,
                   data: { confirm: "You sure?"}%>
-    </li>
+    </th>
   <% end %>
-</ul>
+</tr>
