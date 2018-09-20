@@ -18,4 +18,6 @@ module ApplicationHelper
       redirect_to login_url
     end
   end
+
+
 end

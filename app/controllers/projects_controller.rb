@@ -17,6 +17,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def update
+    @project = Project.find(params[:id])
+  end
+
   def destroy
     @project = Project.find(params[:id])
     Project.find(params[:id]).destroy

@@ -1,32 +1,23 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<h1>Update task</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@task) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', { temp: @task } %>
 
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, class: 'form-control' %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
 
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: 'form-control' %>
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :status %>
+      <%= f.select :status, get_statuses, {}, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.label "Executor" %>
+      <%#= f.text_field "#{@user.first_name} #{@user.last_name}", class: 'form-control' %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
-
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
   </div>
 </div>
