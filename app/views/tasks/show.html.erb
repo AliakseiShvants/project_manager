@@ -1,0 +1,28 @@
+<table id="show-task" class="table">
+  <tbody class="tasks">
+  <tr>
+    <th scope="colgroup" colspan="3">Title</th>
+    <th scope="colgroup" colspan="9">
+      <%= @task.title %>
+    </th>
+  </tr>
+  <tr>
+    <th scope="colgroup" colspan="3">Description</th>
+    <th scope="colgroup" colspan="9">
+      <%= @task.description %>
+    </th>
+  </tr>
+  <tr>
+    <th scope="colgroup" colspan="3">Status</th>
+    <th scope="colgroup" colspan="9">
+      <%= @task.status %>
+    </th>
+  </tr>
+  <tr>
+    <th scope="colgroup" colspan="3">Executor</th>
+    <th scope="colgroup" colspan="9">
+      <%= @user.first_name %> <%= @user.last_name %>
+    </th>
+  </tr>
+  </tbody>
+</table>

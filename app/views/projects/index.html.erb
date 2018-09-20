@@ -1,0 +1,22 @@
+<% provide(:title, 'All projects') %>
+<h1>All projects</h1>
+
+<%= will_paginate %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="colgroup" colspan="2">Summary</th>
+    <th scope="col">Start date</th>
+    <th scope="col">End date</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody class="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
+  <% end %>
+  </tbody>
+</table>

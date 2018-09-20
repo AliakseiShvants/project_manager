@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#
 User.create!(
     first_name: "Aliaksei",
     last_name:  "Shvants",
@@ -15,16 +7,44 @@ User.create!(
     admin: true
 )
 
-99.times do |n|
-  first_name  = Faker::Name.first_name
-  last_name  = Faker::Name.last_name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(
-      first_name:            first_name,
-      last_name:             last_name,
-      email:                 email,
-      password:              password,
-      password_confirmation: password
+10.times do |n|
+   first_name  = Faker::Name.first_name
+   last_name  = Faker::Name.last_name
+   email = "example-#{n+1}@railstutorial.org"
+   password = "password"
+
+   user = User.create!(
+       first_name:            first_name,
+       last_name:             last_name,
+       email:                 email,
+       password:              password,
+       password_confirmation: password
+   )
+
+  name = "#{Faker::App.name} App"
+  summary = "Create a simple #{Faker::ProgrammingLanguage.name} application for #{Faker::Job.title}"
+  start_date = Faker::Time.between(6.months.ago, 6.months.after, :morning)
+  end_date = Faker::Time.between(start_date, 1.months.after, :evening)
+
+  project = Project.create!(
+      name:       name,
+      summary:    summary,
+      start_date: start_date,
+      end_date:   end_date
+  )
+
+  title = "Install #{Faker::ProgrammingLanguage.name} environment"
+  description = "Look for and install stable versions of libraries and dependencies"
+  status = "NEW"
+  project_id = project.id
+  user_id = user.id
+
+  Task.create!(
+      title:       title,
+      description: description,
+      status:      status,
+      project_id:  project_id,
+      user_id:     user_id
   )
 end
+

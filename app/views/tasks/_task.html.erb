@@ -1,32 +1,31 @@
 <tr>
   <th>
-    <%= gravatar_for user, size: 50 %>
+    <%= link_to task.title, task %>
+  </th>
+  <th colspan="2">
+    <%= link_to task.description, task %>
   </th>
   <th>
-    <%= link_to user.first_name, user %>
-  </th>
-  <th>
-    <%= link_to user.last_name, user %>
-  </th>
-  <th>
-    <%= link_to user.email, user %>
+    <%= link_to task.status, task %>
   </th>
 
   <% if current_user.admin? %>
     <th >
-      <%= link_to "update", edit_user_path(user), class: 'btn btn-warning' %>
+      <%= link_to "update", edit_task_path(task), class: 'btn btn-warning' %>
     </th>
 
     <th>
+      <%#= render partial: "shared/_delete-modal.html.erb" %>
       <button type="button" class="btn btn-danger"
-              data-toggle="modal" data-target="#deleteModal<%= user.id %>">
+              data-toggle="modal" data-target="#deleteModal<%= task.id %>">
         Delete
       </button>
+
     </th>
   <% end %>
 </tr>
 
-<div class="modal fade" id="deleteModal<%= user.id %>" tabindex="-1" role="dialog"
+<div class="modal fade" id="deleteModal<%= task.id %>" tabindex="-1" role="dialog"
      aria-labelledby="deleteModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -48,7 +47,7 @@
         <button type="button" class="btn btn-primary" data-dismiss="modal">
           Cancel
         </button>
-        <%= link_to 'Delete', user, method: :delete, class: 'btn btn-danger' %>
+        <%= link_to 'Delete', task, method: :delete, class: 'btn btn-danger' %>
       </div>
     </div>
   </div>
