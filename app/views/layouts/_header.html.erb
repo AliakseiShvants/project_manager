@@ -1,34 +1,33 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+<nav class="navbar navbar-fixed-top bg-light">
+  <div class="navbar-brand">
+    <%#= image_tag("pm.png", alt: "PM app", size: "50", class: "d-inline-block align-top" ) %>
     <%= link_to "Project Manager", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
-
-        <% if logged_in? %>
-          <li><%= link_to "Projects", projects_path %></li>
-          <li><%= link_to "Tasks",    tasks_path %></li>
-          <% if current_user.admin? %>
-            <li><%= link_to "Users",  users_path %></li>
-          <% end %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile",  current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li><%= link_to "My tasks", '#' %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
   </div>
-</header>
+  <ul class="nav navbar-nav navbar-right" id="menu">
+    <li><%= link_to "Home",   root_path %></li>
+
+    <% if logged_in? %>
+      <li><%= link_to "Projects", projects_path %></li>
+      <li><%= link_to "Tasks",    tasks_path %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to "Users",  users_path %></li>
+      <% end %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Account <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Profile",  current_user %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <li><%= link_to "My tasks", '#' %></li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to "Log out", logout_path, method: :delete %>
+          </li>
+        </ul>
+      </li>
+    <% else %>
+      <li><%= link_to "Log in", login_path %></li>
+    <% end %>
+  </ul>
+</nav>

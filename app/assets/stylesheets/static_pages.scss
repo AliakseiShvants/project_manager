@@ -5,11 +5,16 @@
 $gray-medium-light: #eaeaea;
 
 /* header */
+#menu {
+  margin-right: 4em;
+  font-size: 1.2em;
+}
+
 #logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
+  //float: left;
+  margin-left: 4em;
+  font-size: 1.5em;
+  color: black;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;

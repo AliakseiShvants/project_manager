@@ -64,3 +64,11 @@ p {
     margin-bottom: 10px;
   }
 }
+
+#start-date, #start-time, #end-date, #end-time, #submit, #cancel  {
+  display: inline-block;
+}
+
+#start-time, #end-time {
+  float: right;
+}

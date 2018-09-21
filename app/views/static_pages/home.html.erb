@@ -7,10 +7,10 @@
     application by <a href="https://github.com/AliakseiShvants/">Aliaksei Shvants</a>.
   </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% unless current_user %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%  end%>
 </div>
-
-<%= link_to image_tag("pm.png", alt: "PM app", size: "100"), 'https://pacific-earth-58270.herokuapp.com/' %>
 
 
 
