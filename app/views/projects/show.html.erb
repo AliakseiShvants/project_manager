@@ -28,24 +28,26 @@
     </th>
   </tr>
   </tbody>
+</table>
 
-</table>
-<table id="project-tasks" class="container table">
-  <caption class="center">
-    <h3>Project Tasks</h3>
-  </caption>
-  <thead>
-  <tr>
-    <th scope="col">Title</th>
-    <th scope="colgroup" colspan="2">Description</th>
-    <th scope="col">Status</th>
-    <th scope="col"></th>
-    <th scope="col"></th>
-  </tr>
-  </thead>
-  <tbody class="tasks">
-  <% @tasks.each do |task| %>
-    <%= render 'tasks/base-task', {task: task} %>
-  <% end %>
-  </tbody>
-</table>
+<% if @project.tasks.any? %>
+  <table id="project-tasks" class="container table">
+    <caption class="center">
+      <h3>Project Tasks</h3>
+    </caption>
+    <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="colgroup" colspan="2">Description</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody class="tasks">
+    <% @project.tasks.each do |task| %>
+      <%= render 'tasks/base-task', {task: task} %>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

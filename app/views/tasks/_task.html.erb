@@ -6,12 +6,10 @@
     </th>
 
     <th>
-      <%#= render partial: "shared/_delete-modal.html.erb" %>
       <button type="button" class="btn btn-danger"
               data-toggle="modal" data-target="#deleteModal<%= task.id %>">
         Delete
       </button>
-
     </th>
   <% end %>
 </tr>
@@ -23,17 +21,16 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+        <h4 class="modal-title center" id="exampleModalLabel">Delete '<%= task.title %>'</h4>
         <button class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
-      <div class="modal-body">
-        Are you sure?
+      <div class="modal-body center">
+        <h3>Are you sure?</h3>
       </div>
 
-      <!-- Delete button in the footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">
           Cancel

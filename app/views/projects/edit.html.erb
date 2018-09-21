@@ -34,9 +34,48 @@
         </div>
       </div>
 
+      <%#= render 'shared/error_messages', { temp: @task } %>
+
+      <div>
+        <%= link_to "Add new task", {disabled: false}, class: "btn btn-primary" %>
+      </div>
+
+      <%# unless params[:disabled] %>
+<!--        <div>-->
+          <%#= f.label "Task title" %>
+          <%#= f.text_field @task.title, class: 'form-control' %>
+<!--        </div>-->
+
+<!--        <div>-->
+          <%#= f.label "Task description" %>
+          <%#= f.text_field @task.description, class: 'form-control' %>
+<!--        </div>-->
+      <%# end %>
+
+
+
+<!--      <div class="row">-->
+<!--        <div class="col-md-6 col-md-offset-3">-->
+          <%#= form_for(@task) do |f| %>
+
+
+
+
+
+            <%#= f.label :status %>
+            <%#= f.select :status, get_statuses, {}, class: 'form-control' %>
+
+            <%#= f.label "Executor" %>
+            <%#= f.text_field "#{@user.first_name} #{@user.last_name}", class: 'form-control' %>
+
+            <%#= t.submit "Save changes", class: "btn btn-primary" %>
+          <%# end %>
+<!--        </div>-->
+
+
       <div>
         <div id="submit">
-          <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <%= f.submit "Save changes", class: "btn btn-success" %>
         </div>
         <div id="cancel">
           <%= link_to "Cancel", projects_path, class: "btn btn-secondary" %>

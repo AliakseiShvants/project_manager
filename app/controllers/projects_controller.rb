@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @tasks = Task.where(project_id: @project.id)
+    @tasks = @project.tasks
   end
 
   def new
@@ -33,6 +33,12 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @project.task.create(title: "New task", description: "New description")
+
+    unless params[:disabled]
+      @project.task[project_id: @project.id]
+    end
+
     if @project.update_attributes(project_params)
       flash[:success] = "Project updated"
       redirect_to @project
