@@ -23,8 +23,8 @@ User.create!(
 
   name = "#{Faker::App.name} App"
   summary = "Create a simple #{Faker::ProgrammingLanguage.name} application for #{Faker::Job.title}"
-  start_date = Faker::Time.between(6.months.ago, 6.months.after, :morning)
-  end_date = Faker::Time.between(start_date, 1.months.after, :evening)
+  start_date = Faker::Time.between(6.months.ago, 6.months.after, :morning).strftime("%d/%m/%Y %H:%M")
+  end_date = Faker::Time.between(start_date, 1.months.after, :evening).strftime("%d/%m/%Y %H:%M")
 
   project = Project.create!(
       name:       name,

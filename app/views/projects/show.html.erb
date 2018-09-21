@@ -1,0 +1,28 @@
+<table id="show-task" class="table">
+  <tbody class="projects">
+  <tr>
+    <th scope="colgroup" colspan="3">Name</th>
+    <th scope="colgroup" colspan="9">
+      <%= @project.name %>
+    </th>
+  </tr>
+  <tr>
+    <th scope="colgroup" colspan="3">Summary</th>
+    <th scope="colgroup" colspan="9">
+      <%= @project.summary %>
+    </th>
+  </tr>
+  <tr>
+    <th scope="colgroup" colspan="3">Start date and time</th>
+    <th scope="colgroup" colspan="9">
+      <%= @project.start_date.strftime("%d/%m/%Y %H:%M") %>
+    </th>
+  </tr>
+  <tr>
+    <th scope="colgroup" colspan="3">End date and time</th>
+    <th scope="colgroup" colspan="9">
+      <%= @project.end_date.strftime("%d/%m/%Y %H:%M") %>
+    </th>
+  </tr>
+  </tbody>
+</table>

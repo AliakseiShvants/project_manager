@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   VALID_EMAIL_REGEX = /[\w+\-.]+@[a-z\d\-.]+\.[a-z]+/i
   before_save { self.email = email.downcase }
 

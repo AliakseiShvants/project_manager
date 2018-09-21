@@ -2,11 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.calender-span {
-   float: right;
-   margin-right: 6px;
-   margin-top: -20px;
-   position: relative;
-   z-index: 2;
-   color: red;
- }
+#start-date, #start-time, #end-date, #end-time, #submit, #cancel  {
+  display: inline-block;
+}
+
+#start-time, #end-time {
+  float: right;
+}
