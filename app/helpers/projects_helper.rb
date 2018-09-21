@@ -8,5 +8,9 @@ module ProjectsHelper
     "%d/%m/%Y %H:%M"
   end
 
+  def check_end_date(datetime)
+    datetime.strftime(date_time_format?) unless datetime.nil?
+    (DateTime.now + 1.year).strftime(date_time_format?)
+  end
 
 end

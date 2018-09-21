@@ -12,10 +12,22 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @project = Project.new
   end
 
   def edit
     @project = Project.find(params[:id])
+  end
+
+  def create
+    @project = Project.new(project_params)
+    project_name = params[:name]
+    if @project.save
+      flash[:success] = "Project #{project_name} successfully created!"
+      redirect_to @project
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -37,7 +49,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:summary, :end_date)
+    params.require(:project).permit(:name, :summary, :start_date, :end_date)
   end
 
   # def check_for_cancel

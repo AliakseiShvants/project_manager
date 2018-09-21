@@ -9,7 +9,7 @@
     <%= link_to project.start_date.strftime(date_time_format?), project %>
   </th>
   <th>
-    <%= link_to project.end_date.strftime(date_time_format?), project %>
+    <%= link_to check_end_date(project.end_date), project %>
   </th>
 
   <% if current_user.admin? %>
