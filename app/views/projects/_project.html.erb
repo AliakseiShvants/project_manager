@@ -1,15 +1,15 @@
 <tr>
   <th>
-    <%= project.name %>
+    <%= link_to project.name, project %>
   </th>
   <th colspan="2">
-    <%= link_to project.summary, project %>
+    <%= project.summary %>
   </th>
   <th>
-    <%= link_to project.start_date.strftime(date_time_format?), project %>
+    <%= project.start_date.strftime(date_time_format?) %>
   </th>
   <th>
-    <%= link_to check_end_date(project.end_date), project %>
+    <%= check_end_date(project.end_date)%>
   </th>
 
   <% if current_user.admin? %>

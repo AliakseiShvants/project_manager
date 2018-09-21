@@ -1,4 +1,7 @@
-<table id="show-task" class="table">
+<table id="project-info" class="table">
+  <caption class="center">
+    <h2>Project Info</h2>
+  </caption>
   <tbody class="projects">
   <tr>
     <th scope="colgroup" colspan="3">Name</th>
@@ -24,5 +27,25 @@
       <%= @project.end_date.strftime("%d/%m/%Y %H:%M") %>
     </th>
   </tr>
+  </tbody>
+
+</table>
+<table id="project-tasks" class="container table">
+  <caption class="center">
+    <h3>Project Tasks</h3>
+  </caption>
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="colgroup" colspan="2">Description</th>
+    <th scope="col">Status</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody class="tasks">
+  <% @tasks.each do |task| %>
+    <%= render 'tasks/base-task', {task: task} %>
+  <% end %>
   </tbody>
 </table>

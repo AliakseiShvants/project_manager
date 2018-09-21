@@ -3,13 +3,10 @@
     <%= gravatar_for user, size: 50 %>
   </th>
   <th>
-    <%= link_to user.first_name, user %>
+    <%= link_to "#{user.first_name} #{user.last_name}" , user %>
   </th>
   <th>
-    <%= link_to user.last_name, user %>
-  </th>
-  <th>
-    <%= link_to user.email, user %>
+    <%= user.email %>
   </th>
 
   <% if current_user.admin? %>
