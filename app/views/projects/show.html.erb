@@ -18,13 +18,17 @@
   <tr>
     <th scope="colgroup" colspan="3">Start date and time</th>
     <th scope="colgroup" colspan="9">
-      <%= @project.start_date.strftime("%d/%m/%Y %H:%M") %>
+      <% unless @project.start_date.nil? %>
+        <%= @project.start_date.strftime("%d/%m/%Y %H:%M") %>
+      <% end %>
     </th>
   </tr>
   <tr>
     <th scope="colgroup" colspan="3">End date and time</th>
     <th scope="colgroup" colspan="9">
-      <%= @project.end_date.strftime("%d/%m/%Y %H:%M") %>
+      <% unless @project.end_date.nil? %>
+        <%= @project.end_date.strftime("%d/%m/%Y %H:%M") %>
+      <% end %>
     </th>
   </tr>
   </tbody>
@@ -46,7 +50,7 @@
     </thead>
     <tbody class="tasks">
     <% @project.tasks.each do |task| %>
-      <%= render 'tasks/base-task', {task: task} %>
+      <%= render task %>
     <% end %>
     </tbody>
   </table>

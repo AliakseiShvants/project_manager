@@ -5,19 +5,36 @@
     <%= form_for(@task) do |f| %>
       <%= render 'shared/error_messages', { temp: @task } %>
 
-      <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
 
-      <%= f.label :description %>
-      <%= f.text_field :description, class: 'form-control' %>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description, class: 'form-control' %>
+      </div>
 
-      <%= f.label :status %>
-      <%= f.select :status, get_statuses, {}, class: 'form-control' %>
+      <div>
+        <%= f.label :status %>
+        <%= f.select :status, get_statuses, {}, class: 'form-control' %>
+      </div>
 
-      <%= f.label "Executor" %>
-      <%#= f.text_field "#{@user.first_name} #{@user.last_name}", class: 'form-control' %>
+      //todo executor doesn't change
+      <div>
+        <%= f.label "Executor" %>
+        <%= f.select :id, full_names(@users), {}, class: 'form-control' %>
+      </div>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <div>
+        <div id="submit">
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
+        </div>
+
+        <div id="cancel">
+          <%= link_to "Cancel", :back, class: "btn btn-secondary" %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

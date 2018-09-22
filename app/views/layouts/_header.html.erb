@@ -1,4 +1,4 @@
-<nav class=" container navbar bg-light">
+<nav id="header" class=" container navbar bg-light">
   <div class="navbar-brand">
     <%#= image_tag("pm.png", alt: "PM app", size: "50", class: "d-inline-block align-top" ) %>
     <%= link_to "Project Manager", root_path, id: "logo" %>
@@ -14,12 +14,17 @@
       <% end %>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Account <b class="caret"></b>
+<!--          TODO center logo -->
+          <%= gravatar_for current_user, size: 35 %>
+          <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
+          <li class="center">Signed in as <br>
+            <strong><%= full_name(current_user) %></strong>
+          </li>
+          <li class="divider"></li>
           <li><%= link_to "Profile", edit_user_path(current_user) %></li>
           <li><%= link_to "My tasks", current_user %></li>
-<!--          <li><%#= link_to "My tasks", mytasks_path(current_user.tasks) %></li>-->
           <li class="divider"></li>
           <li>
             <%= link_to "Log out", logout_path, method: :delete %>

@@ -1,7 +1,7 @@
 <%# provide(:title, 'Tasks') %>
 <tr>
   <th>
-    <%= task.title%>
+    <%= link_to task.title, task%>
   </th>
   <th colspan="2">
     <%= task.description %>
@@ -9,8 +9,10 @@
   <th>
     <%= task.status %>
   </th>
-  <th >
-    <%= link_to "update", edit_task_path(task), class: 'btn btn-warning' %>
+  <th>
+    <% if executor?(task) %>
+      <%= link_to "update", edit_task_path(task), class: 'btn btn-warning' %>
+    <% end %>
   </th>
 
   <th>
@@ -22,24 +24,6 @@
     <% end %>
   </th>
 </tr>
-
-<!--<table class="table">-->
-<!--  <caption class="center">-->
-<!--    <h3><%#= @title %></h3>-->
-<!--  </caption>-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th scope="col">Title</th>-->
-<!--    <th scope="colgroup" colspan="2">Description</th>-->
-<!--    <th scope="col">Status</th>-->
-<!--    <th scope="col"></th>-->
-<!--    <th scope="col"></th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody class="tasks">-->
-
-<!--  </tbody>-->
-<!--</table>-->
 
 <div class="modal fade" id="deleteModal<%= task.id %>" tabindex="-1" role="dialog"
      aria-labelledby="deleteModalLabel"

@@ -16,6 +16,9 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @user = User.find_by(id: @task.user_id)
+    @users = User.all_except(@user)
+    @users.to_a.unshift(@user)
   end
 
   def update

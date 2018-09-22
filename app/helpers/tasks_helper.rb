@@ -1,10 +1,14 @@
 module TasksHelper
 
   def get_statuses
-     {
-        NEW:         'NEW',
-        IN_PROGRESS: 'IN PROGRESS',
-        DONE:        'DONE'
-    }
+     [
+         'NEW',
+         'IN PROGRESS',
+         'DONE'
+    ]
+  end
+
+  def full_names(users)
+    users.map{|u| full_name(u)}
   end
 end
