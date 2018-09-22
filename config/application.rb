@@ -12,7 +12,7 @@ module ProjectManager
     config.load_defaults 5.1
 
     # Enable rails to serve my assets
-    config.serve_static_assets = true
+    # config.serve_static_assets = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

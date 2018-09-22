@@ -50,7 +50,7 @@
     </thead>
     <tbody class="tasks">
     <% @project.tasks.each do |task| %>
-      <%= render task %>
+      <%= render 'tasks/base-task', {task: task} %>
     <% end %>
     </tbody>
   </table>

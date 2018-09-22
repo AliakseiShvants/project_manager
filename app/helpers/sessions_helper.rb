@@ -13,9 +13,7 @@ module SessionsHelper
   # Returns true if the given user is the task owner.
   def executor?(task)
     current_user.id == task.user_id
-  end
-
-  # Returns the current logged-in user (if any).
+  end  # Returns the current logged-in user (if any).
   def current_user
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
@@ -43,8 +41,6 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
-
   def full_name(user)
     "#{user.first_name} #{user.last_name}"
-  end
-end
+  endend

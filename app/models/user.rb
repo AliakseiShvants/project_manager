@@ -18,7 +18,6 @@ class User < ApplicationRecord
   def self.all_except(user)
     where.not(admin: true)
   end
-
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

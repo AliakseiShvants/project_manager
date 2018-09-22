@@ -9,9 +9,9 @@
   <th>
     <%= task.status %>
   </th>
-  <th>
+  <th >
     <% if executor?(task) %>
-      <%= link_to "update", edit_task_path(task), class: 'btn btn-warning' %>
+    <%= link_to "update", edit_task_path(task), class: 'btn btn-warning' %>
     <% end %>
   </th>
 
@@ -24,6 +24,7 @@
     <% end %>
   </th>
 </tr>
+
 
 <div class="modal fade" id="deleteModal<%= task.id %>" tabindex="-1" role="dialog"
      aria-labelledby="deleteModalLabel"
