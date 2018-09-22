@@ -1,0 +1,30 @@
+<% provide(:title, 'Tasks') %>
+
+<% if tasks.empty? %>
+  <div class="center">
+    <h3><%= @title %> list is empty</h3>
+  </div>
+<% end %>
+
+<% unless tasks.empty? %>
+  <table class="table">
+    <caption class="center">
+      <h3><%= @title %></h3>
+    </caption>
+    <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="colgroup" colspan="2">Description</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody class="tasks">
+    <% tasks.each do |task| %>
+      <%= render task %>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+

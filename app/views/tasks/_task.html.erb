@@ -1,5 +1,5 @@
 <tr>
-  <%= render 'base-task', {task: task } %>
+  <%= render 'shared/base-task', {task: task } %>
   <% if current_user.admin? %>
     <th >
       <%= link_to "update", edit_task_path(task), class: 'btn btn-warning' %>

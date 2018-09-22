@@ -16,3 +16,5 @@
 <p>
   <%= @user.email %>
 </p>
+
+<%= render 'shared/show_tasks', { tasks: @user.tasks} %>

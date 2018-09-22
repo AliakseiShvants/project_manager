@@ -1,4 +1,22 @@
-<% provide(:title, "Edit user") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.first_name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
+<p>
+  <%= @user.first_name %> <%= @user.last_name %>
+</p>
+<p>
+  <%= @user.email %>
+</p>
+
+<!--TODO enable via click-->
 <h1>Update your profile</h1>
 
 <div class="row">

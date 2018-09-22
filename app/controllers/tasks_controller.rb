@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.paginate(:page => params[:page])
+    @title = "All tasks"
   end
 
   def show
