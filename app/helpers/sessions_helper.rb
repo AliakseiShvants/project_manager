@@ -41,6 +41,8 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
   def full_name(user)
     "#{user.first_name} #{user.last_name}"
-  endend
+    end
+end
