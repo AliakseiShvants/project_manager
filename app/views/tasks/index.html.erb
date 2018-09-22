@@ -1,46 +1,21 @@
-<!--<h1>Tasks</h1>-->
+<h1>Tasks</h1>
 
-<%#= will_paginate %>
+<%= will_paginate %>
 
-<!--<table class="table">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th scope="col">Title</th>-->
-<!--    <th scope="colgroup" colspan="2">Description</th>-->
-<!--    <th scope="col">Status</th>-->
-<!--    <th scope="col"></th>-->
-<!--    <th scope="col"></th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody class="tasks">-->
-  <%# @tasks.each do |task| %>
-    <%#= render task %>
-  <%# end %>
-<!--  </tbody>-->
-<!--</table>-->
-
-<%= if @tasks.nil? %>
-  <div class="center">
-    <h2>Task list is empty</h2>
-  </div>
-<% end %>
-
-<%= unless @tasks.nil? %>
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="colgroup" colspan="2">Description</th>
-      <th scope="col">Status</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody class="tasks">
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="colgroup" colspan="2">Description</th>
+    <th scope="col">Status</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody class="tasks">
     <% @tasks.each do |task| %>
       <%= render task %>
     <% end %>
-    </tbody>
-  </table>
-<% end %>
+  </tbody>
+</table>
 
