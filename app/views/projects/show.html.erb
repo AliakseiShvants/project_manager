@@ -34,6 +34,10 @@
   </tbody>
 </table>
 
+<div id="cancel">
+  <%= link_to "Back", projects_path, class: "btn btn-secondary" %>
+</div>
+
 <% if @project.tasks.any? %>
   <table id="project-tasks" class="container table">
     <caption class="center">

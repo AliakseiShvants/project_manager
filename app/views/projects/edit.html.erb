@@ -2,15 +2,19 @@
 <h1>Update project</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-lg-6 col-lg-offset-3">
     <%= form_for(@project) do |f| %>
-      <%= render 'shared/error_messages', { temp: @project } %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
 
-      <%= f.label :summary %>
-      <%= f.text_field :summary, class: 'form-control' %>
+      <div>
+        <%= f.label :summary %>
+        <%= f.text_area :summary, class: 'form-control' %>
+      </div>
 
       <div>
         <div id="start-date">
@@ -34,52 +38,31 @@
         </div>
       </div>
 
-      <%#= render 'shared/error_messages', { temp: @task } %>
+<!--      <div>-->
+        <%#= link_to "Add new task", create_new_task(@project) , class: "btn btn-primary"  %>
+<!--      </div>-->
 
       <div>
-        <%= link_to "Add new task", {disabled: false}, class: "btn btn-primary" %>
+        <a href="#" id="show-link" class="btn btn-primary"
+           onclick="show('a#show-link', 'div#task-form', 'div#form-footer')">
+          Add new task
+        </a>
       </div>
 
-      <%# unless params[:disabled] %>
-<!--        <div>-->
-          <%#= f.label "Task title" %>
-          <%#= f.text_field @task.title, class: 'form-control' %>
-<!--        </div>-->
+      <div id="task-form">
+        <%= render 'shared/task_form' %>
+      </div>
 
-<!--        <div>-->
-          <%#= f.label "Task description" %>
-          <%#= f.text_field @task.description, class: 'form-control' %>
-<!--        </div>-->
+      <%# if %>
+        <%# render 'shared/task_form' %>
       <%# end %>
 
-
-
-<!--      <div class="row">-->
-<!--        <div class="col-md-6 col-md-offset-3">-->
-          <%#= form_for(@task) do |f| %>
-
-
-
-
-
-            <%#= f.label :status %>
-            <%#= f.select :status, get_statuses, {}, class: 'form-control' %>
-
-            <%#= f.label "Executor" %>
-            <%#= f.text_field "#{@user.first_name} #{@user.last_name}", class: 'form-control' %>
-
-            <%#= t.submit "Save changes", class: "btn btn-primary" %>
-          <%# end %>
-<!--        </div>-->
-
-
-      <div>
+      <div id="form-footer">
         <div id="submit">
-          <%= f.submit "Save changes", class: "btn btn-success" %>
+          <%= f.submit "Save", class: "btn btn-success" %>
         </div>
         <div id="cancel">
-          <%= link_to "Cancel", :back, class: "btn btn-secondary" %>
-          <%#= f.submit "Cancel", type: :cancel, class: "btn btn-secondary" %>
+          <%= link_to "Cancel", :back, class: "btn btn-light" %>
         </div>
       </div>
     <% end %>

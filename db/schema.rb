@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180920120600) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "status", default: "NEW"
+    t.string "status"
     t.integer "project_id"
     t.integer "user_id"
     t.datetime "created_at", null: false

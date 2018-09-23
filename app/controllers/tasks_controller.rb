@@ -14,6 +14,9 @@ class TasksController < ApplicationController
     @user = User.find_by(id: @task.user_id)
   end
 
+  def new
+  end
+
   def edit
     @task = Task.find(params[:id])
     @user = User.find_by(id: @task.user_id)
@@ -21,20 +24,32 @@ class TasksController < ApplicationController
     @users.to_a.unshift(@user)
   end
 
-  def update
-    @task = Task.find(params[:id])
-    @user = User.find_by(id: @task.user_id)
-    @user_full_name = "#{@user.first_name} #{@user.last_name}"
-    if @task.update_attributes(task_params)
-      flash[:success] = "Task updated"
-      redirect_to @task
-    else
-      render 'edit'
+  def create
+    @task = current_user.tasks.build(params[:task])
+    if @task.save
+      flash[:success] = "Task created!"
+      redirect_to edit_project_path
     end
   end
 
+  def update
+    # @task = Task.find(params[:id])
+    # @user = User.find_by(id: @task.user_id)
+    # @user_full_name = "#{@user.first_name} #{@user.last_name}"
+    # if @task.update_attributes(update_task_params)
+    #   flash[:success] = "Task updated"
+    #   redirect_to @task
+    # else
+    #   render 'edit'
+    # end
+  end
+
+  def destroy
+
+  end
+
   private
-  def task_params
+  def update_task_params
     params.require(:task).permit(:description, :status, :user_id)
   end
 end

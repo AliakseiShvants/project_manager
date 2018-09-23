@@ -5,6 +5,11 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  # Returns true if the current user is the admin.
+  def admin?
+    current_user.admin
+  end
+
   # Returns true if the given user is the current user.
   def current_user?(user)
     user == current_user
@@ -14,6 +19,7 @@ module SessionsHelper
   def executor?(task)
     current_user.id == task.user_id
   end  # Returns the current logged-in user (if any).
+
   def current_user
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
@@ -42,7 +48,8 @@ module SessionsHelper
     session[:forwarding_url] = request.original_url if request.get?
   end
 
+  # Returns a full name of user.
   def full_name(user)
     "#{user.first_name} #{user.last_name}"
-    end
+  end
 end

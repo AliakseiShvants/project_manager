@@ -1,4 +1,3 @@
-<%# provide(:title, @user.first_name) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -9,20 +8,20 @@
     </section>
   </aside>
 </div>
-
-<p>
-  <%= @user.first_name %> <%= @user.last_name %>
-</p>
-<p>
-  <%= @user.email %>
-</p>
+<div>
+  <h4>Info:</h4>
+  <p>
+    <%= @user.first_name %> <%= @user.last_name %>
+    <br>
+    <%= @user.email %>
+  </p>
+</div>
 
 <% if @user.tasks.any? %>
-
   <%= render 'shared/base-task' %>
-<% else %>
+<% elsif !@user.admin? %>
   <div class="center">
-    <h3>List is empty</h3>
+    <h3>Task list is empty</h3>
   </div>
 <% end %>
 

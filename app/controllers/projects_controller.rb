@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @task = @project.tasks.build
   end
 
   def create
@@ -33,11 +34,8 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project.task.create(title: "New task", description: "New description")
-
-    unless params[:disabled]
-      @project.task[project_id: @project.id]
-    end
+    # @task = @project.tasks.create(title: "New task", description: "New description")
+    # @project.task.create(title: "New task", description: "New description")
 
     if @project.update_attributes(project_params)
       flash[:success] = "Project updated"
@@ -58,9 +56,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name, :summary, :start_date, :end_date)
   end
-
-  # def check_for_cancel
-  #   redirect_to projects_url if params[:cancel]
-  # end
 
 end
