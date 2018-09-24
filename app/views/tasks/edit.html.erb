@@ -20,10 +20,9 @@
         <%= f.select :status, get_statuses, {}, class: 'form-control' %>
       </div>
 
-      <!--todo executor doesn't change-->
       <div>
         <%= f.label "Executor" %>
-        <%= f.select :id, full_names(@users), {}, class: 'form-control' %>
+        <%= f.select :user_id, @users.collect{|u| [full_name(u), u.id]}, {}, class: 'form-control' %>
       </div>
 
       <div>

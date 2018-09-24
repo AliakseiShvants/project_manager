@@ -5,7 +5,7 @@
     <%= form_for(@task) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.hidden_field :project_id %>
+      <%= f.hidden_field :project_id, value: 92 %>
 
       <div>
         <%= f.label :title %>
@@ -17,11 +17,10 @@
         <%= f.text_area :description, class: 'form-control' %>
       </div>
 
-      <!--todo executor doesn't change-->
-<!--      <div>-->
-        <%#= f.label "Executor" %>
-        <%#= f.select :id, full_names(@users), {}, class: 'form-control' %>
-<!--      </div>-->
+      <div>
+        <%= f.label "Executor" %>
+        <%= f.select :user_id, @users.collect{|u| [full_name(u), u.id]}, {}, class: 'form-control' %>
+      </div>
 
       <div id="task-form-footer">
         <div id="submit">
@@ -29,14 +28,9 @@
         </div>
 
         <div id="cancel">
-<!--          <a href="#" id="hide-link" class="btn btn-secondary"-->
-<!--             onclick="hide('a#hide-link', 'a#show-link', 'div#task-form')">-->
-<!--            Cancel-->
-<!--          </a>-->
           <%= link_to "Cancel", :back %>
         </div>
       </div>
-
     <% end %>
   </div>
 </div>

@@ -1,15 +1,5 @@
 <h2>New task</h2>
 
-<div>
-  <%= f.label :title %>
-  <%= f.text_field :title, class: 'form-control' %>
-</div>
-
-<div>
-  <%= f.label :description %>
-  <%= f.text_area :description, class: 'form-control' %>
-</div>
-
 <div class="row">
   <div>
     <%= form_for(@task) do |f| %>
@@ -37,8 +27,7 @@
         </div>
 
         <div id="cancel">
-          <a href="#" id="hide-link" class="btn btn-secondary"
-             onclick="hide('a#hide-link', 'a#show-link', 'div#task-form')">
+          <a href="#" id="hide-link" class="btn btn-secondary">
             Cancel
           </a>
           <%= link_to "Cancel", edit_project_path %>

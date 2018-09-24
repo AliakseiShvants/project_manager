@@ -19,11 +19,11 @@
       <div>
         <div id="start-date">
           <%= f.label :start_date %>
-          <%= f.date_field :start_date, readonly: true, class: 'form-control' %>
+          <%= f.date_field :start_date, class: 'form-control' %>
         </div>
         <div id="start-time">
           <%= "Start time" %>
-          <%= f.time_field :start_date, ignore_date: true, readonly: true, class: 'form-control' %>
+          <%= f.time_field :start_date, ignore_date: true, class: 'form-control' %>
         </div>
       </div>
 
@@ -38,8 +38,7 @@
         </div>
       </div>
 
-      <%= link_to 'Add new task', {action: "new", controller: "tasks", project_id: @project.id}, class: "btn btn-primary"%>
-      <%#= link_to 'Add new task', new_project_task_path(@project), class: "btn btn-primary"%>
+      <%= link_to 'Add new task', new_project_task_path(@project.id), class: "btn btn-primary"%>
 
 <!--      <div>-->
 <!--        <button type="button" id="show-link" class="btn btn-primary">Add new task</button>-->

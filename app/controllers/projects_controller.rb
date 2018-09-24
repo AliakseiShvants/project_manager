@@ -18,14 +18,13 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    # @task = @project.tasks.build
   end
 
   def create
     @project = Project.new(project_params)
     project_name = params[:name]
     if @project.save
-      flash[:success] = "Project #{project_name} successfully created!"
+      flash[:success] = "Project '#{project_name}' successfully created!"
       redirect_to @project
     else
       render 'new'
@@ -36,7 +35,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 
     if @project.update_attributes(project_params)
-      flash[:success] = "Project updated"
+      flash[:success] = "Project '#{@project.name}' updated"
       redirect_to @project
     else
       render 'edit'

@@ -15,7 +15,7 @@ class User < ApplicationRecord
             allow_nil: true
   validates :password,   presence: true, length: { minimum: 6 }
 
-  def self.all_except
+  def self.all_except_admin
     where.not(admin: true)
   end
 

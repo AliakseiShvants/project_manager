@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
 
-  before_action :correct_user,   only: [:show, :edit, :create, :update]
-  before_action :admin_user,     only: [:index, :destroy]
+  before_action :correct_user,   only: [:edit, :create, :update]
+  before_action :admin_user,     only: [:index, :show, :destroy]
 
   def index
     @users = User.paginate(page: params[:page])
   end
 
   def show
-    @tasks = @user.tasks.paginate(page: params[:page])
+    @user = User.find(params[:id])
+    if @user.tasks.any?
+      @tasks = @user.tasks.paginate(page: params[:page])
+    end
   end
 
   def new
