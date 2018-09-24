@@ -3,9 +3,10 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3">
     <%= form_for(@task) do |f| %>
+
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.hidden_field :project_id, value: 92 %>
+      <%= f.hidden_field :project_id, value: 93 %>
 
       <div>
         <%= f.label :title %>
@@ -19,7 +20,7 @@
 
       <div>
         <%= f.label "Executor" %>
-        <%= f.select :user_id, @users.collect{|u| [full_name(u), u.id]}, {}, class: 'form-control' %>
+        <%= f.select :user_id, get_users(@users), {}, class: 'form-control' %>
       </div>
 
       <div id="task-form-footer">

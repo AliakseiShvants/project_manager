@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password,   presence: true, length: { minimum: 6 },
             allow_nil: true
-  validates :password,   presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true, length: { minimum: 6 }
 
   def self.all_except_admin
     where.not(admin: true)

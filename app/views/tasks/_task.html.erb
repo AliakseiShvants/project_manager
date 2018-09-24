@@ -9,8 +9,8 @@
     <%= task.status %>
   </th>
   <th >
-    <% if executor?(task) %>
-    <%= link_to "update", edit_task_path(task), class: 'btn btn-warning' %>
+    <% if executor?(task) || admin? %>
+    <%= link_to "update", edit_task_path(task.id), class: 'btn btn-warning' %>
     <% end %>
   </th>
 

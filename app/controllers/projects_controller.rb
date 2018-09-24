@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # before_action :check_for_cancel, only: [:create, :update]
 
   def index
-    @projects = Project.paginate(:page => params[:page])
+    @projects = Project.order(start_date: :desc).paginate(:page => params[:page])
   end
 
   def show
@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    project_name = params[:name]
+    project_name = params[:project][:name]
     if @project.save
       flash[:success] = "Project '#{project_name}' successfully created!"
       redirect_to @project

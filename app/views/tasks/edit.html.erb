@@ -22,7 +22,7 @@
 
       <div>
         <%= f.label "Executor" %>
-        <%= f.select :user_id, @users.collect{|u| [full_name(u), u.id]}, {}, class: 'form-control' %>
+        <%= f.select :user_id, get_users(@users), {}, class: 'form-control' %>
       </div>
 
       <div>

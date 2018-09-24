@@ -1,12 +1,11 @@
 class TasksController < ApplicationController
 
-  before_action :logged_in_user,      only: [:index]
-  before_action :correct_task_user,   only: [:edit, :update]
-  before_action :admin_user,          only: [:destroy]
+  # before_action :logged_in_user,      only: [:index]
+  # before_action :correct_task_user,   only: [:update]
+  before_action   :admin_user,          only: [:index, :destroy]
 
   def index
     @tasks = Task.paginate(:page => params[:page])
-    @title = "All tasks"
   end
 
   def show
@@ -23,7 +22,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     # @user = User.find_by(id: @task.user_id)
     @users = User.all_except_admin
-    # @users.include?(@user)
   end
 
   def create
@@ -39,7 +37,8 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "Task '#{@task.title}' updated"
-      redirect_to @task
+      redirect_to current_user unless admin?
+      redirect_to tasks_url
     else
       render 'edit'
     end
@@ -47,7 +46,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find(params[:id])
-    User.find(params[:id]).destroy
+    Task.find(params[:id]).destroy
     flash[:success] = "Task '#{@task.title}' deleted"
     redirect_to tasks_url
   end
@@ -64,4 +63,7 @@ class TasksController < ApplicationController
     redirect_to(root_url) unless @user.tasks.find_by(id: @task.id)
   end
 
+  def admin_user
+    redirect_to(root_url) unless admin?
+  end
 end

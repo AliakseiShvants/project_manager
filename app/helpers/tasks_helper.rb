@@ -8,7 +8,8 @@ module TasksHelper
     ]
   end
 
-  def full_names(users)
-    users.map{|u| "#{u.first_name} #{u.last_name}"}
+  def get_users(users)
+    users.collect{|u| [full_name(u), u.id]}
   end
+
 end
