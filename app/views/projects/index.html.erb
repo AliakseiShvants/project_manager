@@ -1,6 +1,9 @@
 <h1>All projects</h1>
 
-<%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+<% if admin? %>
+  <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+<% end %>
+
 <br>
 <%= will_paginate %>
 

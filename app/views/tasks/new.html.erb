@@ -6,7 +6,7 @@
 
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.hidden_field :project_id, value: 93 %>
+      <%= f.hidden_field :project_id, params[:project_id].to_i %>
 
       <div>
         <%= f.label :title %>

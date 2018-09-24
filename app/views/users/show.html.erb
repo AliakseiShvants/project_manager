@@ -16,14 +16,16 @@
     <%= @user.email %>
   </p>
 </div>
+<%#= link_to "Update", edit_user_url, class: "btn btn-primary" %>
 
-<% if @user.tasks.any? %>
-  <%= render 'shared/base-task' %>
-<% elsif !@user.admin? %>
-  <div class="center">
-    <h3>Task list is empty</h3>
-  </div>
-<% end %>
+
+<%# if @user.tasks.any? %>
+  <%#= render 'shared/base-task' %>
+<%# elsif !admin? %>
+<!--  <div class="center">-->
+<!--    <h3>Task list is empty</h3>-->
+<!--  </div>-->
+<%# end %>
 
 
 <%#= render 'shared/show_tasks', { tasks: @user.tasks} %>

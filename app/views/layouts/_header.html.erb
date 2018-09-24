@@ -8,8 +8,8 @@
 
     <% if logged_in? %>
       <li><%= link_to "Projects", projects_path %></li>
+      <li><%= link_to "Tasks",  tasks_path %></li>
       <% if current_user.admin? %>
-        <li><%= link_to "Tasks",  tasks_path %></li>
         <li><%= link_to "Users",  users_path %></li>
       <% end %>
       <li class="dropdown">
@@ -23,8 +23,9 @@
             <strong><%= full_name(current_user) %></strong>
           </li>
           <li class="divider"></li>
-          <li><%= link_to "Profile", edit_user_path(current_user) %></li>
-          <li><%= link_to "My tasks", current_user %></li>
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+<!--          <li><%#= link_to "My tasks", current_user %></li>-->
           <li class="divider"></li>
           <li>
             <%= link_to "Log out", logout_path, method: :delete %>

@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
   # before_action :logged_in_user,      only: [:index]
   # before_action :correct_task_user,   only: [:update]
-  before_action   :admin_user,          only: [:index, :destroy]
+  before_action   :admin_user,          only: [:destroy]
 
   def index
     @tasks = Task.paginate(:page => params[:page])
@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @project = Project.find_by(id: params[:task][:project_id])
+    @project = Project.find(params[:project_id])
     @task = @project.tasks.build(task_params)
     if @task.save
       flash[:success] = "Task '#{@task.title}' created!"
@@ -63,7 +63,4 @@ class TasksController < ApplicationController
     redirect_to(root_url) unless @user.tasks.find_by(id: @task.id)
   end
 
-  def admin_user
-    redirect_to(root_url) unless admin?
-  end
 end

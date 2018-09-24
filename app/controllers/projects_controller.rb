@@ -33,7 +33,6 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-
     if @project.update_attributes(project_params)
       flash[:success] = "Project '#{@project.name}' updated"
       redirect_to @project

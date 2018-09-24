@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :correct_user,   only: [:index, :show, :edit, :create, :update]
+  # before_action :correct_user,   only: [:index, :show, :edit,  :update]
   before_action :admin_user,     only: [ :destroy]
 
   def index
@@ -54,8 +54,7 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user)
-          .permit(:first_name, :last_name, :email,
-                :password, :password_confirmation)
+          .permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
   # Confirms a logged-in user.
@@ -70,7 +69,7 @@ class UsersController < ApplicationController
   # Confirms the correct user.
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    redirect_to(root_url) unless current_user?(@user) || admin?
   end
 
   def admin_user
