@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @project = Project.find(params[:project_id])
+    @project = Project.find(params[:task][:project_id])
     @task = @project.tasks.build(task_params)
     if @task.save
       flash[:success] = "Task '#{@task.title}' created!"
