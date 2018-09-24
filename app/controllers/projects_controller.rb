@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @task = @project.tasks.build
+    # @task = @project.tasks.build
   end
 
   def create
@@ -34,8 +34,6 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    # @task = @project.tasks.create(title: "New task", description: "New description")
-    # @project.task.create(title: "New task", description: "New description")
 
     if @project.update_attributes(project_params)
       flash[:success] = "Project updated"

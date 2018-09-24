@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   before_action :logged_in_user, only: [:index]
-  # before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:destroy]
 
   def index
@@ -15,20 +15,22 @@ class TasksController < ApplicationController
   end
 
   def new
+    @task = Task.new
   end
 
   def edit
     @task = Task.find(params[:id])
     @user = User.find_by(id: @task.user_id)
-    @users = User.all_except(@user)
-    @users.to_a.unshift(@user)
+    @users = User.all_except
+    # @users.to_a.unshift(@user)
   end
 
   def create
-    @task = current_user.tasks.build(params[:task])
+    @project = Project.find(params[:project_id])
+    @task = @project.create(title: params[:title], description: params[:description])
     if @task.save
       flash[:success] = "Task created!"
-      redirect_to edit_project_path
+      redirect_back_or @project
     end
   end
 

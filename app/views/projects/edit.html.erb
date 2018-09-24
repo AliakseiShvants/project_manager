@@ -38,24 +38,16 @@
         </div>
       </div>
 
+      <%= link_to 'Add new task', {action: "new", controller: "tasks", project_id: @project.id}, class: "btn btn-primary"%>
+      <%#= link_to 'Add new task', new_project_task_path(@project), class: "btn btn-primary"%>
+
 <!--      <div>-->
-        <%#= link_to "Add new task", create_new_task(@project) , class: "btn btn-primary"  %>
+<!--        <button type="button" id="show-link" class="btn btn-primary">Add new task</button>-->
 <!--      </div>-->
 
-      <div>
-        <a href="#" id="show-link" class="btn btn-primary"
-           onclick="show('a#show-link', 'div#task-form', 'div#form-footer')">
-          Add new task
-        </a>
-      </div>
-
-      <div id="task-form">
-        <%= render 'shared/task_form' %>
-      </div>
-
-      <%# if %>
-        <%# render 'shared/task_form' %>
-      <%# end %>
+<!--      <div id="task-form">-->
+        <%#= render 'shared/task_form' %>
+<!--      </div>-->
 
       <div id="form-footer">
         <div id="submit">

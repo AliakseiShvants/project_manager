@@ -1,5 +1,15 @@
 <h2>New task</h2>
 
+<div>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+</div>
+
+<div>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control' %>
+</div>
+
 <div class="row">
   <div>
     <%= form_for(@task) do |f| %>
@@ -16,12 +26,12 @@
       </div>
 
       <!--todo executor doesn't change-->
-<!--      <div>-->
-        <%#= f.label "Executor" %>
-        <%#= f.select :id, full_names(@users), {}, class: 'form-control' %>
-<!--      </div>-->
-
       <div>
+        <%= f.label "Executor" %>
+        <%= f.select :id, full_names(@users), {}, class: 'form-control' %>
+      </div>
+
+      <div id="task-form-footer">
         <div id="submit">
           <%= f.submit "Submit", class: "btn btn-success" %>
         </div>
@@ -31,7 +41,7 @@
              onclick="hide('a#hide-link', 'a#show-link', 'div#task-form')">
             Cancel
           </a>
-          <%#= link_to "Cancel", edit_project_path %>
+          <%= link_to "Cancel", edit_project_path %>
         </div>
       </div>
 

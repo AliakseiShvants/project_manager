@@ -48,8 +48,9 @@ p {
   }
 }
 
-#form-footer {
+#form-footer, #task-form-footer {
   margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 #start-date, #start-time, #end-date, #end-time, #submit, #cancel  {

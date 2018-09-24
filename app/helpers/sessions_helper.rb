@@ -31,7 +31,7 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  #Lods out the current user.
+  #Logs out the current user.
   def log_out
     session.delete(:user_id)
     @current_user = nil
@@ -52,4 +52,6 @@ module SessionsHelper
   def full_name(user)
     "#{user.first_name} #{user.last_name}"
   end
+
+
 end
