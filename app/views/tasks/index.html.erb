@@ -1,4 +1,8 @@
-<h1>Tasks</h1>
+<% if admin? %>
+  <h1>Tasks</h1>
+<% else %>
+  <h1><%= @user_name %> tasks</h1>
+<% end %>
 
 <%= will_paginate %>
 

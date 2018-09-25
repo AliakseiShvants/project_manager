@@ -1,6 +1,5 @@
 <nav id="header" class=" container navbar bg-light">
   <div class="navbar-brand">
-    <%#= image_tag("pm.png", alt: "PM app", size: "50", class: "d-inline-block align-top" ) %>
     <%= link_to "Project Manager", root_path, id: "logo" %>
   </div>
   <ul class="nav navbar-nav navbar-right" id="menu">
@@ -8,10 +7,12 @@
 
     <% if logged_in? %>
       <li><%= link_to "Projects", projects_path %></li>
-      <li><%= link_to "Tasks",  tasks_path %></li>
+      <li><%= link_to "Tasks",    tasks_path %></li>
+
       <% if current_user.admin? %>
         <li><%= link_to "Users",  users_path %></li>
       <% end %>
+
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 <!--          TODO center logo -->
@@ -25,7 +26,7 @@
           <li class="divider"></li>
           <li><%= link_to "Profile", current_user %></li>
           <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-<!--          <li><%#= link_to "My tasks", current_user %></li>-->
+          <li><%= link_to "My tasks", user_tasks_path(current_user) %></li>
           <li class="divider"></li>
           <li>
             <%= link_to "Log out", logout_path, method: :delete %>

@@ -5,7 +5,13 @@ class TasksController < ApplicationController
   before_action   :admin_user,          only: [:destroy]
 
   def index
-    @tasks = Task.paginate(:page => params[:page])
+    if admin?
+      @tasks = Task.paginate(page: params[:page])
+    else
+      @user_name = full_name(current_user)
+      @tasks = current_user.tasks.paginate(page: params[:page])
+    end
+
   end
 
   def show
@@ -30,15 +36,17 @@ class TasksController < ApplicationController
     if @task.save
       flash[:success] = "Task '#{@task.title}' created!"
       redirect_back_or @project
+    else
+      render 'new'
     end
   end
 
   def update
+    @users = User.all_except_admin
     @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "Task '#{@task.title}' updated"
-      redirect_to current_user unless admin?
-      redirect_to tasks_url
+      redirect_to admin? ? tasks_url : edit_user_url
     else
       render 'edit'
     end
