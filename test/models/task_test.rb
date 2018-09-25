@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setuo
+    @task = Task.new(
+                    title: "test #1",
+                    description: "task model test",
+                    status: "NEW"
+    )
+  end
+
+
 end
