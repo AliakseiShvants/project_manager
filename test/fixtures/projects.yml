@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  summary: MyText
-  end_date: 2018-09-20 02:14:14
+project:
+  name:       My App
+  summary:    Write a simple app
+  start_date: 2018-09-26 09:00:00
+  end_date:   2018-09-26 12:00:00
 
-two:
-  name: MyString
-  summary: MyText
-  end_date: 2018-09-20 02:14:14
+<% 9.times do |n| %>
+project_<%= n %>:
+    name:       <%= "My App № #{n}" %>
+    summary:    <%= "Write a simple app number #{n}" %>
+    start_date: 2018-09-2<%= n %> 09:0<%= n %>:0<%= n %>
+    end_date:   2018-09-2<%= n %> 12:0<%= n %>:0<%= n %>
+<% end %>
